@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+    msdemo:
+        image: rajeshkudi/msdemo:0.0.1-SNOPSHOT
+        ports:
+            - "8081:8081"
+        restart: always
+        networks:
+            - demo-compose-network
+    lbdemo:
+        image: rajeshkudi/lbdemo-1:0.0.4-SNOPSHOT
+        ports:
+            - "8080:8080"
+        restart: always
+        environment:
+            MSDEMO_SERVICE_HOST: http://msdemo
+        depends_on: 
+            - msdemo
+        networks:
+            - demo-compose-network
+                
+networks: 
+    demo-compose-network:
