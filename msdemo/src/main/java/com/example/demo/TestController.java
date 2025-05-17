@@ -17,6 +17,14 @@ private int i=1;
 		System.out.println("hitting "+ i++);
 		return "Hi Rajesh ! Welcome to Our App : From MS DEMO" ;
 	}
+
+
+	@GetMapping("/get2")
+	public String get2() throws UnknownHostException {
+		InetAddress localhost = InetAddress.getLocalHost();
+		System.out.println("hitting "+ i++);
+		return "Hi Rajesh ! Welcome to Our App : From MS DEMO :" + localhost.getHostAddress() ;
+	}
 	
    
 	
